@@ -1,0 +1,65 @@
+import { useCallback, useEffect, useState } from 'react';
+import { Edit } from 'lucide-react';
+
+import { useApi } from './utils/api';
+import { remoteUrl } from './utils/github';
+
+import { Navbar } from './components/Navbar';
+import { Content } from './components/Content';
+import { Sidebar } from './components/Sidebar';
+
+import './App.css';
+
+export function App() {
+  const [content, setContent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [sidebar, setSidebar] = useState([]);
+  const [editUrl, setEditUrl] = useState(null);
+
+  const { getTopics, getContent } = useApi();
+
+  const switchContent = useCallback((url) => {
+    setLoading(true);
+    setContent(null);
+    getContent(url, (content) => {
+      setContent(content);
+      setLoading(false);
+    });
+  }, [getContent]);
+
+  const fetchSidebarData = useCallback(async () => {
+    const topics = await getTopics();
+    setSidebar(topics);
+    setEditUrl(remoteUrl(topics?.[0].items?.[0].path));
+    switchContent(topics?.[0].items?.[0].url);
+  }, [getTopics, switchContent]);
+
+  useEffect(() => {
+    fetchSidebarData();
+  }, [fetchSidebarData]);
+
+  return (<>
+    <div className="app">
+      <Navbar />
+
+      <div className="app-container">
+        <Sidebar
+          contents={sidebar}
+          switchContent={switchContent}
+        />
+        
+        <Content
+          content={content}
+          loading={loading}
+        />
+
+        {editUrl && (
+          <a className="edit-link" href={editUrl}>
+            <Edit />
+          </a>
+        )}
+      </div>
+    </div>
+  </>);
+}
+

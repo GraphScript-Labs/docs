@@ -1,0 +1,22 @@
+.sidebar-item {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  outline: none;
+  border: none;
+  position: relative;
+  background: #ffffff33;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  scale: 1;
+}
+
+.sidebar-item:hover {
+  background: #ffffff66;
+}
+
+.sidebar-item:active {
+  scale: 0.5;
+}
+
