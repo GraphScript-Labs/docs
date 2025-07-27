@@ -1,3 +1,4 @@
+import { Construction, Pickaxe } from "lucide-react";
 import "./style.css";
 
 export function Content({ content, loading }) {
@@ -37,6 +38,14 @@ export function Content({ content, loading }) {
   return (<>
     <div className="content">
       {!loading && decodeContent(content)}
+      {!loading && <div className="no-content">
+        <span className="no-content-icon">
+          <Pickaxe />
+        </span>
+        <span className="no-content-text">
+          This topic is currently being worked on.
+        </span>
+      </div>}
     </div>
   </>);
 }
