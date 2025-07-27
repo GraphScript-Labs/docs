@@ -62,6 +62,10 @@ export const useApi = () => {
     const decoded = decodeURIComponent(escape(atob(topicData.content)));
     const content = unified().use(remarkParse).parse(decoded);
 
+    await new Promise((resolve) => {
+      setTimeout(resolve, 1000);
+    });
+
     successCallback?.(content);
     return content;
   }, []);

@@ -1,4 +1,4 @@
-import { Construction, Pickaxe } from "lucide-react";
+import { Pickaxe } from "lucide-react";
 import "./style.css";
 
 export function Content({ content, loading }) {
