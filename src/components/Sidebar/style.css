@@ -1,9 +1,14 @@
 .sidebar-wrapper {
   flex: 1;
-  height: 100%;
-  border-radius: 1rem;
-  padding: 2rem;
+  margin: 2rem;
   overflow: hidden;
+  border-radius: 1rem;
+  background: linear-gradient(
+    to bottom right,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-tertiary)
+  );
 }
 
 .sidebar {
@@ -15,12 +20,12 @@
   flex-direction: column;
   gap: 1.5rem;
   overflow-y: auto;
-  background: linear-gradient(
-    to bottom right,
-    var(--color-primary),
-    var(--color-secondary),
-    var(--color-tertiary)
-  );
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: transparent;
 }
 
 .sidebar-section {
