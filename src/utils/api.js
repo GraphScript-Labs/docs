@@ -1,7 +1,8 @@
 import { useCallback } from "react";
-import { getTree } from "./github";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+
+import { getTree } from "./github";
 
 export const useApi = () => {
   const getTopics = useCallback(async () => {
