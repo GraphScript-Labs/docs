@@ -18,10 +18,11 @@ export function App() {
 
   const { getTopics, getContent } = useApi();
 
-  const switchContent = useCallback((url) => {
+  const switchContent = useCallback((item) => {
     setLoading(true);
     setContent(null);
-    getContent(url, (content) => {
+    getContent(item.url, (content) => {
+      setEditUrl(remoteUrl(item.path));
       setContent(content);
       setLoading(false);
     });
@@ -29,9 +30,10 @@ export function App() {
 
   const fetchSidebarData = useCallback(async () => {
     const topics = await getTopics();
+    const firstTopic = topics?.[0].items?.[0];
+    
     setSidebar(topics);
-    setEditUrl(remoteUrl(topics?.[0].items?.[0].path));
-    switchContent(topics?.[0].items?.[0].url);
+    switchContent(firstTopic);
   }, [getTopics, switchContent]);
 
   useEffect(() => {

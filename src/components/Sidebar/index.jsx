@@ -20,7 +20,7 @@ export function Sidebar({ contents, switchContent }) {
                   key={item.value}
                   label={item.label}
                   value={item.value}
-                  action={() => switchContent(item.url)}
+                  action={() => switchContent(item)}
                 />)
               }
             </div>
