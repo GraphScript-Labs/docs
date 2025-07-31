@@ -115,6 +115,39 @@
   gap: 1rem;
 }
 
+.content .code {
+  background: #ffffff33;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  text-wrap: nowrap;
+  user-select: text;
+  cursor: text;
+}
+
+.content .blockquote {
+  border-left: 0.25rem solid var(--color-primary);
+  padding-left: 1rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.content .inlineCode {
+  background: #ffffff33;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  white-space: pre-wrap;
+  text-wrap: nowrap;
+  user-select: text;
+  cursor: text;
+  margin: 0.25rem 0;
+}
+
 .content:has(.root:empty) .no-content {
   display: flex;
 }
