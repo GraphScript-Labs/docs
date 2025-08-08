@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 
-import { getTree } from "./github";
+import { getTree, rawContentUrl } from "./github";
 
 export const useApi = () => {
   const getTopics = useCallback(async () => {
@@ -17,6 +17,7 @@ export const useApi = () => {
       const sectionName = sectionParts.join(" ");
 
       sections[item.path] = {
+        path: item.path,
         title: sectionName,
         order: sectionOrder,
         items: [],
@@ -57,11 +58,11 @@ export const useApi = () => {
     );
   }, []);
 
-  const getContent = useCallback(async (topicUrl, successCallback) => {
-    const topicResp = await fetch(topicUrl);
-    const topicData = await topicResp.json();
-    const decoded = decodeURIComponent(escape(atob(topicData.content)));
+  const getContent = useCallback(async (section, successCallback) => {
+    const contentResp = await fetch(rawContentUrl(section.path));
+    const decoded = await contentResp.text();
     const content = unified().use(remarkParse).parse(decoded);
+    console.log(content);
 
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);

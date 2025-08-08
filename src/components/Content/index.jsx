@@ -30,7 +30,10 @@ export function Content({ content, loading }) {
       </a>);
     }
 
-    return (<div key={key} className={content.type}>
+    return (<div key={key} className={[
+      content.type,
+      `depth-${content.depth}`,
+    ].join(" ")}>
       { decoded.map((item) => item) }
     </div>);
   }

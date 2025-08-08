@@ -21,7 +21,7 @@ export function App() {
   const switchContent = useCallback((item) => {
     setLoading(true);
     setContent(null);
-    getContent(item.url, (content) => {
+    getContent(item, (content) => {
       setEditUrl(remoteUrl(item.path));
       setContent(content);
       setLoading(false);
