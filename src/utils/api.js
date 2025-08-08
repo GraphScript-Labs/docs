@@ -62,7 +62,6 @@ export const useApi = () => {
     const contentResp = await fetch(rawContentUrl(section.path));
     const decoded = await contentResp.text();
     const content = unified().use(remarkParse).parse(decoded);
-    console.log(content);
 
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);

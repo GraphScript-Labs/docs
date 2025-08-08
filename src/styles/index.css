@@ -8,7 +8,7 @@
   box-sizing: border-box;
   cursor: inherit;
   background: transparent;
-  color: var(--color-white);
+  color: inherit;
   user-select: none;
   -webkit-user-select: none;
   font-family: inherit;
@@ -37,7 +37,7 @@ html, body, #root {
   height: 100%;
   cursor: default;
   background-color: var(--color-background);
-  color: var(--color-white);
+  color: var(--color-text);
   overflow-y: auto;
   transition: none;
   font-family:

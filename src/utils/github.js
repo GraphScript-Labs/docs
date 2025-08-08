@@ -1,18 +1,17 @@
 const orgName = "GraphScript-Labs";
 const repo = "guidebook";
 const branch = "main";
-const apiUrl = "https://api.github.com";
+const apiUrl = "https://gh-api.adityaprasaddash-official.workers.dev";
 const rawUrl = "raw.githubusercontent.com";
 
 const githubUrl = `${apiUrl}/repos/${orgName}/${repo}/branches/${branch}`;
-const headers = {}
 
 export const getTree = async () => {
-  const repoDetailResp = await fetch(githubUrl, { headers });
+  const repoDetailResp = await fetch(githubUrl);
   const repoDetail = await repoDetailResp.json();
 
   const treeUrl = repoDetail.commit.commit.tree.url;
-  const treeResp = await fetch(`${treeUrl}?recursive=1`, { headers });
+  const treeResp = await fetch(`${treeUrl}?recursive=1`);
   const treeData = await treeResp.json();
   
   return treeData.tree;

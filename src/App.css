@@ -25,12 +25,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  background: linear-gradient(
-    to bottom right,
-    var(--color-primary),
-    var(--color-secondary),
-    var(--color-tertiary)
-  );
+  background: var(--gradient);
+  color: var(--color-gradient);
   cursor: pointer;
   opacity: 0.5;
   box-shadow: 0 0 0.5rem #00000000;

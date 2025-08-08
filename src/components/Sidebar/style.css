@@ -3,12 +3,8 @@
   margin: 2rem;
   overflow: hidden;
   border-radius: 1rem;
-  background: linear-gradient(
-    to bottom right,
-    var(--color-primary),
-    var(--color-secondary),
-    var(--color-tertiary)
-  );
+  background: var(--gradient);
+  color: var(--color-gradient);
 }
 
 .sidebar {
