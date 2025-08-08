@@ -75,12 +75,6 @@
   display: inline;
 }
 
-.content .link {
-  color: var(--color-primary);
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .content .list {
   display: flex;
   flex-direction: column;
@@ -152,6 +146,16 @@
   user-select: text;
   cursor: text;
   margin: 0.25rem 0;
+}
+
+.content .link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  cursor: pointer !important;
+}
+
+.content .link * {
+  cursor: pointer !important;
 }
 
 .content:has(.root:empty) .no-content {
