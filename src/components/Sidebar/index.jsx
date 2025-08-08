@@ -1,9 +1,12 @@
 import { SidebarItem } from "../SidebarItem";
 import "./style.css";
 
-export function Sidebar({ contents, switchContent }) {
+export function Sidebar({ active, contents, switchContent }) {
   return (<>
-    <div className="sidebar-wrapper">
+    <div className={[
+      "sidebar-wrapper",
+      active ? "active" : ""
+    ].join(" ")}>
       <div className="sidebar">
         {
           contents.map(section => <div

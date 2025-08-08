@@ -185,3 +185,9 @@
   color: var(--color-text-secondary);
 }
 
+@media (max-width: 800px) {
+  .content {
+    padding: 2rem;
+  }
+}
+

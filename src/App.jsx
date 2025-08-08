@@ -15,6 +15,7 @@ export function App() {
   const [loading, setLoading] = useState(true);
   const [sidebar, setSidebar] = useState([]);
   const [editUrl, setEditUrl] = useState(null);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
 
   const { getTopics, getContent } = useApi();
 
@@ -42,10 +43,11 @@ export function App() {
 
   return (<>
     <div className="app">
-      <Navbar />
+      <Navbar toggleActive={() => setSidebarVisible(!sidebarVisible)} />
 
       <div className="app-container">
         <Sidebar
+          active={sidebarVisible}
           contents={sidebar}
           switchContent={switchContent}
         />

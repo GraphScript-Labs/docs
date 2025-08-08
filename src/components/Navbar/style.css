@@ -39,11 +39,18 @@
   width: auto;
 }
 
-.navbar-home {
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.navbar-actions > * {
   z-index: 1000;
   padding: 0.5rem;
+  height: 100%;
   aspect-ratio: 1;
-  width: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,17 +62,28 @@
   color: var(--color-gradient);
 }
 
-.navbar-home:hover {
+:has(.sidebar-wrapper.active) .navbar-sidebar-hamburger,
+.navbar-actions > *:hover {
   opacity: 1;
   box-shadow: 0 0 0.5rem #ffffff33;
 }
 
-.navbar-home:active {
+.navbar-actions > *:active {
   scale: 0.5;
 }
 
-.navbar-home > * {
+.navbar-actions > * > * {
   width: 100%;
   height: 100%;
+}
+
+.navbar-sidebar-hamburger {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .navbar-sidebar-hamburger {
+    display: flex;
+  }
 }
 
